@@ -1,0 +1,59 @@
+# Metadata, as per intake_esm catalogue.json
+id: ashwed80 
+title: AUS2200 simulations collection.    
+description: |
+    Test to see if having all the simualtions as one dataset works better.
+
+    Project: ua8
+    Maintained By: CLEX
+    Contact: cws_help@nci.org.au
+    Documentation:
+    License:
+    Citation:
+    References:
+
+# Find paths and options to locate all of the files
+find:
+    paths:
+        - /g/data/ua8/AUS2200/ 
+    options: -not -type d -name *.nc
+
+# Python regular expression to decompose the DRS
+#   Name a section with (?P<NAME>...)
+#   Refer to a previous name with (?P=NAME) (e.g. if the variable is in both the path and filename)
+#   Uses the re.VERBOSE flag, comments allowed
+drs: |
+    ^(?P<path>
+    /g/data/ua8/AUS2200
+    /(?P<experiment>[^/]+)
+    /(?P<version>[^/]+)
+    /(?P<table>[^/]+)
+    /([^/]+/)?   # some experiments have a variable folder too
+    (?P<variable>[^_]+)_
+    AUS2200_
+    (?P<experiment_id>[^_]+)_
+    (?P<frequency>[^_]+)_?
+    (?P<date_range>.*)?\.nc)
+
+    
+# Aggregation, as per intake_esm catalogue.json
+# Attributes will be automatically generated based on the DRS pattern,
+# excluding the asset column name
+assets:
+    column_name: path
+    format: netcdf
+aggregation_control:
+    # Name of the variable in the file
+    variable_column_name: variable
+    # Grouping keys are made of these columns, joined by '.'
+    groupby_attrs:
+        - experiment_id
+        - version
+        - frequency
+        - variable 
+    aggregations:
+        # Join along the existing time dimension
+        - type: join_existing
+          attribute_name: date_range
+          options:
+              dim: time
