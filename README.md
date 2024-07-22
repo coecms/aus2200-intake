@@ -8,7 +8,7 @@ environment
 ```python
 import intake
 
- cat = intake.open_catalog('/g/data/ua8/Working/packages/aus2200-intake/catalogue.yaml') 
+cat = intake.open_catalog('/g/data/ua8/Working/packages/aus2200-intake/catalogue.yaml') 
 ```
 
 Individual datasets are catalogued using intake-esm
