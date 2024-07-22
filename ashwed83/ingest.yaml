@@ -2,7 +2,7 @@
 id: ashwed83 
 title: AUS2200 UM amip simulation of the 1983 Ash Wednesday bushfire.    
 description: |
-    A limited area model study of the entire Australian continent at 2.2 km resolution, using the UM atmospheric model. ERA5+ERA5Land reanalysis data was used to provide intial and boundary conditions. The study covers the time period of 1983-02-15 to 1983-02-17, including the 1983 Ash Wednesday bushfires.
+    A limited area model study of the entire Australian continent at 2.2 km resolution, using the UM atmospheric model. ERA5+ERA5Land reanalysis data was used to provide initial and boundary conditions. The study covers the time period of 1983-02-15 to 1983-02-17, including the 1983 Ash Wednesday bushfires.
     This dataset is part of the AUS2200 simulations collection.
 
     Project: ua8
